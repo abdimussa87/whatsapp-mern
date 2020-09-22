@@ -12,13 +12,13 @@ function Sidebar() {
             <div className="sidebar_header">
                 <Avatar src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png" />
                 <div className="sidebar__headerRight">
-                    <IconButton>
+                    <IconButton >
                     <DonutLargeIcon/>
                     </IconButton>
-                    <IconButton>
+                    <IconButton >
                     <ChatIcon/>
                     </IconButton>
-                    <IconButton>
+                    <IconButton >
                     <MoreVertIcon/>
                     </IconButton>
                 </div>

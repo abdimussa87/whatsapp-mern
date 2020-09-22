@@ -5,21 +5,21 @@
 }
 .sidebar_header {
   display: flex;
-  align-items: center;
   padding: 20px;
   justify-content: space-between;
   border-right: 1px solid lightgrey;
 }
 .sidebar__headerRight {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   min-width: 10vw;
 }
 
-/* Not really working this code */
+/* Not really working this code because its in ICONBUtton*/
 .sidebar__headerRight > .MuiSvgIcon-root {
   margin-right: 2vw;
-  font-size: 240px !important;
+  font-size: 24px !important;
 }
 .sidebar__search {
   display: flex;

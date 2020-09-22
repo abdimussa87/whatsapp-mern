@@ -1,5 +1,5 @@
 import { Avatar, IconButton } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchIcon from '@material-ui/icons/Search';
 import InsertEmoticonOutlinedIcon from '@material-ui/icons/InsertEmoticonOutlined';
@@ -7,7 +7,20 @@ import AttachFileOutlinedIcon from '@material-ui/icons/AttachFileOutlined';
 import MicOutlinedIcon from '@material-ui/icons/MicOutlined';
 import './Chat.css';
 import ChatMessage from './ChatMessage';
-function Chat() {
+import axios from './axios';
+function Chat({ messages }) {
+    const [message, setMessage] = useState('');
+    const chatMessageComponents = messages.map(message => <ChatMessage key={message.id} name={message.name} message={message.message} received={message.received} timestamp={message.timestamp} />);
+    const onMessageSent = async (e) => {
+        e.preventDefault();
+      await  axios.post('/api/v1/messages',{
+            message:message,
+            name:'Abdi',
+            timestamp: new Date().toUTCString(),
+            received:false
+        });
+        setMessage('');
+    }
     return (
         <div className='chat'>
             <div className="chat__header">
@@ -33,18 +46,19 @@ function Chat() {
             </div>
             <div className="chat__body">
 
-                <ChatMessage/>
-                <ChatMessage/>
-                <ChatMessage/>
-                
+                {chatMessageComponents}
+
             </div>
             <div className="chat__footer">
-                <InsertEmoticonOutlinedIcon/>
+                <InsertEmoticonOutlinedIcon />
                 <form>
-                <input placeholder='Type a message' type="text"/>
-                <button type='submit'>Send a message</button>
+                    <input
+                        placeholder='Type a message' type="text"
+                         value={message} 
+                        onChange={e => setMessage(e.target.value)  } />
+                    <button type='submit' onClick={onMessageSent}>Send a message</button>
                 </form>
-               < MicOutlinedIcon/>
+                < MicOutlinedIcon />
 
             </div>
         </div>

@@ -1,13 +1,13 @@
 import React from 'react'
 import './ChatMessage.css'
-function Message() {
+function ChatMessage({key,name,received,timestamp,message}) {
     return (
         <div className='message'>
-            <p className='chat__message chat__reciever'>
-                    <span className='chat__name'>Abdi</span>
-                    This is a message 
+            <p  className={`chat__message ${!received && "chat__reciever"}  `}>
+                    <span className='chat__name'>{name}</span>
+                     {message}
                     <span className='chat__timestamp'>
-                        {new Date().toUTCString()}
+                        {timestamp}
                     </span>
 
                 </p>
@@ -16,4 +16,4 @@ function Message() {
     )
 }
 
-export default Message
+export default ChatMessage

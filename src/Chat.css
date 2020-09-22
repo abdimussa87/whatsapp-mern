@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
   flex: 0.65;
+  
 }
+
 .chat__header {
   display: flex;
   align-items: center;
@@ -21,12 +23,14 @@
   color: grey;
 }
 .chat__body{
+    scrollbar-width: none;
     flex: 1;
     background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
     background-repeat: repeat;
     background-position: center;
     padding: 30px;
     overflow: scroll;
+    
 }
 
 .chat__footer{
